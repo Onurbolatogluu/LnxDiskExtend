@@ -1,0 +1,21 @@
+    
+fdisk -l
+lvdisplay 
+lvmdiskscan
+
+************************* önemli **********************************************************************************************
+pvcreate /dev/sdb >> fdisk -l 'de gördüğümüz yeni diskin ismini diriyoruz. 
+lvmdiskscan -l
+
+************************* önemli **********************************************************************************************
+https://drive.google.com/file/d/1Ubs6MEJlOx1kNdpJUWv5dkjc9XOP-oVZ/view?usp=sharing
+vgextend ubuntu-vg /dev/sdb >> lvdisplay'de çıkan arttıracağımız dizinin vg ismini giriyoruz.  
+lvmdiskscan 
+lvdisplay
+
+************************* önemli **********************************************************************************************
+https://drive.google.com/file/d/1PAG9WYbmyL2FBe9ad5wYlfehKMBbTRLI/view?usp=sharing
+lvm lvextend -l +100%FREE /dev/ubuntu-vg/lv-0  >> lvdisplay'de çıkan arttıracağımız dizinin lv path'ini giriyoruz giriyoruz.
+resize2fs /dev/ubuntu-vg/lv-0 >> lvdisplay'de çıkan arttıracağımız dizinin lv path'ini giriyoruz giriyoruz.
+
+df -h > son olarak diskimizin yeni boyutunu kontrol ediyoruz.
