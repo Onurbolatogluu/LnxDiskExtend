@@ -1,10 +1,12 @@
 echo 1>/sys/class/block/sda/device/rescan > eklediğimiz diski, sunucuyu restart etmeden scan ediyoruz.
 
-parted /dev/sda > Genişleteğimiz Partitionu belirtiyoruz.(/dev/sda - sdb - sdc olabilir, bu diskinizin yapılandırılmasına göre değişir.)  / dizinimiz sda üzerinde.
+parted /dev/sda > Genişleteğimiz Partitionu belirtiyoruz.(/dev/sda - sdb - sdc olabilir, bu diskinizin yapılandırılmasına göre ve eklemek istediğiniz partitiona göre değişir.)  / dizinimiz sda üzerinde.
 
 print > Parted tool'u içerisinde sda'nın bölümlerini dökmesi için print yazıyoruz.
+Burada bizden fix etmemizi isteyebilir. 
+END sorusunu sorarsa, diskimizin güncel boyutunu yazıyoruz. Yani totalde 40GB olacaksa bunu yazıyoruz.
+örn, mevcut diskimizi 30 GB'dan 40GB'A yükselttiysek, bunu 40 GB olarak cevaplamalıyız.
 
-Burada bizden fix etmemizi isteyebilir.
 
 resizepart 3 40GB > sda içerisinde 3 bölümü 40 GB'a yükseltmek istediğimiz için bu bölümü resize ediyoruz.
 
