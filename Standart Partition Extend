@@ -1,0 +1,16 @@
+echo 1>/sys/class/block/sda/device/rescan > eklediğimiz diski, sunucuyu restart etmeden scan ediyoruz.
+
+parted /dev/sda > Genişleteğimiz Partitionu belirtiyoruz.(/dev/sda - sdb - sdc olabilir, bu diskinizin yapılandırılmasına göre değişir.)  / dizinimiz sda üzerinde.
+
+print > Parted tool'u içerisinde sda'nın bölümlerini dökmesi için print yazıyoruz.
+
+Burada bizden fix etmemizi isteyebilir.
+
+resizepart 3 40GB > sda içerisinde 3 bölümü 40 GB'a yükseltmek istediğimiz için bu bölümü resize ediyoruz.
+
+print > resize işlemi başarılı olup, olmadığını kontrol ediyoruz.
+
+q > ile parted tool'undan çıkıyoruz.
+
+resize2fs /dev/sda3 > komut satırına bu komutu yazıyoruz. Ve böylelikle ilgili bölümümüz genişlemiş olması lazım.
+(dev/sda3 kısmını df -h yaptığımızda hangi bölümü genişletmek istiyorsak onu yazıyoruz, ben sda3 genişletmek istediğim için sda3 olarak belirttim.)
