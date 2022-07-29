@@ -3,6 +3,8 @@ fdisk -l
 lvdisplay 
 lvmdiskscan
 
+ls /sys/class/scsi_host/ | while read host ; do echo "- - -" > /sys/class/scsi_host/$host/scan ; done  > Yeni eklediğimiz diski scan ediyoruz.
+
 ************************* önemli **********************************************************************************************
 pvcreate /dev/sdb >> fdisk -l 'de gördüğümüz yeni diskin ismini diriyoruz. 
 lvmdiskscan -l
